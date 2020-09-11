@@ -1,0 +1,42 @@
+*[data-icon]:before {
+  font-size: 2rem;
+}
+
+[data-icon="logo"]:before {
+  content: "\00C3";
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+[data-icon="landing"]:before {
+  content: "\00C4";
+  font-size: 20rem;
+}
+
+[data-icon="facebook"]:before {
+  content: "\00C0";
+}
+
+[data-icon="instagram"]:before {
+  content: "\00C1";
+}
+
+[data-icon="linkedin"]:before {
+  content: "\00C2";
+}
+
+[data-icon="border"]:before {
+  content: "|";
+}
+
+[data-icon="bulls"]:before {
+  content: "";
+}
+
+[data-icon="juventus"]:before {
+  content: "";
+}
+
+[data-icon="spiderman"]:before {
+  content: "";
+}
