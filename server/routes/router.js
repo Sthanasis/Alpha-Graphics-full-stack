@@ -151,7 +151,7 @@ router.post("/login", (req, res, next) => {
   }
 });
 
-router.get("/logout", logout);
+router.get("/admin/logout", logout);
 
 router.delete("/:id", isAdmin, async (req, res) => {
   const project = await Project.findByIdAndDelete(req.params.id);

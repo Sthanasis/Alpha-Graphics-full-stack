@@ -41,6 +41,10 @@ a {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
 }
 
+.router-link-exact-active {
+  color: var(--LightColor);
+}
+
 .landingLogo {
   display: flex;
   width: fit-content;

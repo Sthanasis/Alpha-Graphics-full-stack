@@ -17,6 +17,20 @@ class ApiCalls {
     });
   }
 
+  static async getProject(id) {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `${url}${id}`,
+      });
+      if (res.data.status === "success") {
+        return res;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   //Create Post
   static async insertProject(data) {
     try {
@@ -34,8 +48,18 @@ class ApiCalls {
   }
 
   //Delete Post
-  static deleteProject(id) {
-    return axios.delete(`${url}${id}`);
+  static async deleteProject(id) {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `${url}/${id}`,
+      });
+      if (res.data.status === "success") {
+        return res;
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   static async login(user) {
@@ -59,7 +83,7 @@ class ApiCalls {
     try {
       const res = await axios({
         method: "GET",
-        url: `${url}/logout`,
+        url: `${url}admin/logout`,
       });
       if (res.data.status === "success") {
         localStorage.removeItem("token");

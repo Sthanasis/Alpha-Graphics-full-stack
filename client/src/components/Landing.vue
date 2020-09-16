@@ -7,6 +7,7 @@
         class="project"
         v-for="project in projects"
         v-bind:key="project._id"
+        :id="`${project._id}`"
         :style="`background-image: url(../img/${project.project};`"
       >
         <div class="viewProject">
