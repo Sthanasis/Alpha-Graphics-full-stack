@@ -4,6 +4,8 @@ import App from "./App.vue";
 import Contact from "./components/Contact.vue";
 import Landing from "./components/Landing.vue";
 import Login from "./components/Login.vue";
+import Portofolio from "./components/Portofolio.vue";
+import AddProject from "./components/AddProject.vue";
 
 Vue.config.productionTip = false;
 
@@ -14,6 +16,8 @@ const routes = [
   { path: "/", component: Landing },
   { path: "/login", component: Login },
   { path: "/logout", component: Landing },
+  { path: "/portofolio", component: Portofolio },
+  { path: "/addProject", component: AddProject },
 ];
 
 const router = new VueRouter({

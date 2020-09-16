@@ -31,7 +31,6 @@ export default {
   // },
   watch: {
     $route(to, from) {
-      console.log(to, from);
       if (
         from.fullPath === "/login" &&
         to.fullPath === "/" &&

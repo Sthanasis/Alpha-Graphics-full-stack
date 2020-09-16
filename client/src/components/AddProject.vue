@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <div class="btn btn-success" @click="showForm = !showForm">
-      <span v-if="!showForm">Add Project</span>
-      <span v-if="showForm">Hide Form</span>
-    </div>
-    <div class="form-container" v-if="showForm">
+  <div style="height: 100vh">
+    <div class="form-container center" v-if="isAdmin">
       <div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Project Title</label>
@@ -20,6 +16,17 @@
           <label for="fileInput">Project image in jpeg</label>
           <input type="file" accept="image/*" class="form-control-file" id="fileInput" name="photo" />
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value />Graphic Design
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value />Concept Art
+          </label>
+        </div>
+        <input type="text" :value="type" />
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Project Description</label>
           <textarea
@@ -44,7 +51,11 @@ export default {
       showForm: false,
       title: "",
       description: "",
+      type: "",
     };
+  },
+  props: {
+    isAdmin: Boolean,
   },
   methods: {
     postProject() {
@@ -52,13 +63,17 @@ export default {
       data.append("title", this.title);
       data.append("description", this.description);
       data.append("photo", document.getElementById("fileInput").files[0]);
-
+      data.append(
+        "type",
+        document.querySelector("input:checked").parentElement.textContent
+      );
       console.log(data);
       //document.getElementById("exampleFormControlFile1");
       apiCalls.insertProject(data).then((res) => {
         if (res.data.status === "success") {
           this.title = "";
           this.description = "";
+          document.querySelector("input:checked").unchecked;
           document.getElementById("fileInput").value = "";
           this.$router.push("/");
         }

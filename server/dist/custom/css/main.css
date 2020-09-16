@@ -26,15 +26,17 @@ a {
 
 .viewProject {
   display: flex;
+  position: absolute;
   flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 2em;
-  padding-right: 8em;
-  background: var(--MediumColor);
-  /* position: absolute;
-  margin-left: 45vw; */
-  float: right;
   margin-top: 5rem;
+  margin-left: 40vw;
+  padding-right: 5em;
+  padding-left: 4em;
+  background: var(--MediumColor);
   border-radius: 0.5em;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
 }
@@ -43,9 +45,13 @@ a {
   display: flex;
   width: fit-content;
   width: -moz-fit-content;
-  height: 95vh;
+  height: 100vh;
   margin: auto;
   font-family: "Gilroy-Bold";
+}
+
+.visible {
+  opacity: 1 !important;
 }
 
 .viewProject span {

@@ -29,14 +29,14 @@
   content: "|";
 }
 
-[data-icon="bulls"]:before {
-  content: "";
+[data-icon="brash"]:before {
+  content: "\00A2";
 }
 
-[data-icon="juventus"]:before {
-  content: "";
+[data-icon="phone"]:before {
+  content: "\00A1";
 }
 
-[data-icon="spiderman"]:before {
-  content: "";
+[data-icon="email"]:before {
+  content: "\00A3";
 }

@@ -2,19 +2,21 @@
   <nav>
     <div id="NavPageContainer">
       <router-link id="logoContainer" class="navDestination" data-icon="logo" to="/"></router-link>
-      <router-link class="navDestination" to="/Portofolio">Portofolio</router-link>
-      <router-link class="navDestination" to="/About">About</router-link>
-      <router-link class="navDestination" to="/Contact">Contact</router-link>
+      <router-link class="navDestination" to="/portofolio">Portofolio</router-link>
+      <router-link class="navDestination" to="/about">About</router-link>
+      <router-link class="navDestination" to="/contact">Contact</router-link>
+      <router-link class="navDestination" v-if="isAdmin" to="/addProject">Add Project</router-link>
     </div>
 
     <social></social>
-    <div class="btn btn-danger" v-if="isAdmin" @click="logMeOut">Logout</div>
+    <div class="btn btn-danger" v-if="isAdmin" @click="logMeOut" style="margin: auto 0;">Logout</div>
   </nav>
 </template>
 
 <script>
 import social from "./Social.vue";
 import apiCalls from "../apiCalls.js";
+
 export default {
   data() {
     return {};

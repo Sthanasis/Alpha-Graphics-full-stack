@@ -106,6 +106,7 @@ router.post("/", updloadUserPhoto, async (req, res) => {
     project: req.file.filename,
     date: new Date(),
     description: req.body.description,
+    type: req.body.type,
   });
 
   res.status(201).json({

@@ -1,5 +1,6 @@
 <template>
-  <div class="landing">
+  <div>
+    <div class="landing"></div>
     <div class="container">
       <div style="text-align:start;font-weight:bold;letter-spacing:1px;">Contact Me</div>
       <div class="contact-phone">
@@ -33,7 +34,7 @@ export default {
   width: -moz-fit-content;
   background-color: var(--DarkColor);
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -57,9 +58,10 @@ export default {
 
 .landing {
   display: flex;
-  width: fit-content;
-  width: -moz-fit-content;
+
   height: 100vh;
-  margin: auto;
+
+  background-color: var(--DarkColor);
+  opacity: 0.5;
 }
 </style>

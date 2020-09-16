@@ -7,7 +7,7 @@
         class="project"
         v-for="project in projects"
         v-bind:key="project._id"
-        :style="`background-image: url(../img/${project.project};width: 50vw;`"
+        :style="`background-image: url(../img/${project.project};`"
       >
         <div class="viewProject">
           <span>{{ project.title }}</span>
@@ -76,15 +76,15 @@ h1 {
 }
 
 .project {
-  background-position-x: 10vw;
-  min-height: 50vh;
+  background-position-x: 20vw;
+  min-height: 64vh;
+  margin-top: 10rem;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 25vw;
-  /* background-image: url(../assets/SPIDERMAN.svg); */
 }
 
-.viewProject:nth-of-type(2) {
-  float: left;
+.project:nth-of-type(2) {
+  background-position-x: 50vw;
 }
 </style>

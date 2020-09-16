@@ -7,6 +7,9 @@ const projectSchema = new mongoose.Schema({
   description: { type: String },
   project: { type: String },
   date: { type: String },
+  type: {
+    type: String,
+  },
 });
 
 const Project = mongoose.model("Project", projectSchema);
