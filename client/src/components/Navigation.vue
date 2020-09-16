@@ -20,9 +20,6 @@ export default {
     return {};
   },
   props: { isAdmin: Boolean },
-  mounted() {
-    console.log(this.admin);
-  },
   methods: {
     logMeOut() {
       apiCalls.logout().then((res) => {

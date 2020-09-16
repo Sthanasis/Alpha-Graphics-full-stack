@@ -56,7 +56,9 @@ export default {
     async getData() {
       try {
         const response = await ApiCalls.getProjects();
-        this.projects = response.data.projects;
+        for (let i = 0; i <= 2; i++) {
+          this.projects.push(response.data.projects[i]);
+        }
       } catch (err) {
         this.error = err.message;
       }

@@ -14,6 +14,7 @@
       <div class="description">
         Graphics Designer
         <span>-</span> Concept Artist
+        <span data-icon="phone"></span>
       </div>
     </div>
     <div data-icon="border" class="border rightBorder"></div>
@@ -26,6 +27,7 @@ export default {
     fadeIn(el) {
       setTimeout(() => {
         el.classList.add("fade-in");
+        document.getElementById("logoContainer").style.opacity = 1;
       }, 2000);
     },
     fadeOut(el) {
@@ -39,6 +41,8 @@ export default {
     this.fadeIn(document.getElementById("nameLogo"));
     this.fadeIn(document.getElementById("logoContainer"));
     this.fadeOut(document.getElementById("mainLogo"));
+    document.getElementById("logoContainer").style.opacity = 0;
+    //document.getElementById("logoContainer").classList.remove("visible");
   },
 };
 </script>

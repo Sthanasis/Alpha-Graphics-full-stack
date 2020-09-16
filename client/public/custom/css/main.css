@@ -48,6 +48,10 @@ a {
   font-family: "Gilroy-Bold";
 }
 
+.visible {
+  opacity: 1 !important;
+}
+
 .viewProject span {
   text-transform: uppercase;
   font-weight: bold;
