@@ -3,37 +3,48 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const router = require("./routes/router");
 
 const app = express();
 
 //Middlewares
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(cors());
 
-const router = require("./routes/router");
+dotenv.config({
+  path: "./config.env",
+});
 
 app.use("/api/router", router);
+
+// app.get("/api/login", (req, res) => {
+//   res.send("this is the auth login route");
+// });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(`${__dirname}/dist`));
 
-  app.get("/logMeInAuth", (req, res) => {
-    res.send("this is the auth login route");
-  });
+  // app.get("/api/login", (req, res) => {
+  //   res.send("this is the auth login route");
+  // });
 
   app.get(/.*/, (req, res) => {
-    res.sendFile(`${__dirname}/dist/index.html`);
+    res.status(200).sendFile(`${__dirname}/dist/index.html`);
   });
 }
+app.use(express.static(`${__dirname}/dist`));
+
+app.get(/.*/, (req, res) => {
+  console.log(__dirname);
+  res.status(200).sendFile(`${__dirname}/dist/index.html`);
+});
 
 process.on("uncaughtException", (err) => {
   console.log(err.name, err.message);
   console.log("uncaught Exception! SHUTTING DOWN NOW");
   process.exit(1);
-});
-
-dotenv.config({
-  path: "./config.env",
 });
 
 const DB =

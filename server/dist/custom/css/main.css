@@ -4,30 +4,6 @@ body {
   box-sizing: border-box;
 }
 
-.projectImageBulls {
-  background-image: url("../../../src/assets/BULLS.svg");
-  background-position-x: 15vw;
-}
-
-.projectImageSpiderman {
-  background-image: url("../../../src/assets/SPIDERMAN.svg");
-  background-position-x: 55vw;
-}
-
-.projectImageJuventus {
-  background-image: url("../../../src/assets/JUVENTUS\ KIT.svg");
-  background-position-x: 15vw;
-}
-
-.projectImageBulls,
-.projectImageSpiderman,
-.projectImageJuventus {
-  min-height: 50vh;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: 30rem;
-}
-
 #app {
   font-family: Gilroy, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,13 +12,16 @@ body {
   color: var(--MainText);
   padding: 0;
   background-color: var(--DarkColor);
-  padding-bottom: 10rem;
   background-image: url(../../../src/assets/background.svg);
   background-repeat: no-repeat;
 }
 
 a {
   color: var(--MainText);
+}
+
+.bgCover {
+  background-size: cover;
 }
 
 .viewProject {
@@ -52,11 +31,21 @@ a {
   padding: 2em;
   padding-right: 8em;
   background: var(--MediumColor);
-  position: absolute;
-  margin-left: 45vw;
+  /* position: absolute;
+  margin-left: 45vw; */
+  float: right;
   margin-top: 5rem;
   border-radius: 0.5em;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+}
+
+.landingLogo {
+  display: flex;
+  width: fit-content;
+  width: -moz-fit-content;
+  height: 95vh;
+  margin: auto;
+  font-family: "Gilroy-Bold";
 }
 
 .viewProject span {
