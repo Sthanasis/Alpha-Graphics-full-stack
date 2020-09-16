@@ -54,9 +54,10 @@ export default {
 
 .outerProject {
   height: 15rem;
-  margin: 0 10rem;
+  margin: auto;
   width: 15rem;
   overflow: hidden;
+  border-radius: 0.5em;
 }
 
 .projectButtonContainer {
@@ -74,7 +75,8 @@ export default {
 .projectInnerContainer {
   position: absolute;
   top: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
   top: 30vh;
   height: 70vh;
   width: 100vw;

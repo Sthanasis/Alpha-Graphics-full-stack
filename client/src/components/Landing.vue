@@ -18,14 +18,12 @@
     <div v-else>
       <span>{{ error }}</span>
     </div>
-    <add-project v-if="isAdmin"></add-project>
   </div>
 </template>
 
 <script>
 import logo from "./Logo.vue";
 import ApiCalls from "../apiCalls";
-import addProject from "./AddProject.vue";
 
 export default {
   data() {
@@ -42,7 +40,6 @@ export default {
   },
   components: {
     logo,
-    addProject,
   },
   methods: {
     async createProject() {

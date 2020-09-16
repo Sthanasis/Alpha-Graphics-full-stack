@@ -100,6 +100,16 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/:id", async (req, res) => {
+  const project = await Project.findById(req.params.id);
+  res.status(200).json({
+    status: "success",
+    data: {
+      project,
+    },
+  });
+});
+
 router.post("/", updloadUserPhoto, async (req, res) => {
   const newProject = await Project.create({
     title: req.body.title,

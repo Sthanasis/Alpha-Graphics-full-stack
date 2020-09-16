@@ -65,7 +65,7 @@ export default {
       data.append("photo", document.getElementById("fileInput").files[0]);
       data.append(
         "type",
-        document.querySelector("input:checked").parentElement.textContent
+        document.querySelector("input:checked").parentElement.textContent.trim()
       );
       console.log(data);
       //document.getElementById("exampleFormControlFile1");
