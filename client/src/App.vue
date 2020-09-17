@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <navBar :isAdmin="isAdmin" @adminLogout="adminLogout"></navBar>
-    <router-view :isAdmin="isAdmin" :design="design" @changeDesign="changeDesign"></router-view>
+    <router-view
+      :isAdmin="isAdmin"
+      :design="design"
+      @graphicDesign="graphicDesign"
+      @conceptArt="conceptArt"
+    ></router-view>
   </div>
 </template>
 
@@ -21,8 +26,11 @@ export default {
       this.isAdmin = false;
       this.$router.push("/");
     },
-    changeDesign() {
-      this.design = !this.design;
+    graphicDesign() {
+      this.design = true;
+    },
+    conceptArt() {
+      this.design = false;
     },
   },
   watch: {

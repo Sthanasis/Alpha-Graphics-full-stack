@@ -2,8 +2,8 @@
   <div style="height: 100vh;">
     <div class="projectContainer"></div>
     <div class="projectButtonContainer">
-      <button class="btn btn-primary" @click="changeProjectCategory">Graphic Design</button>
-      <button class="btn btn-primary" @click="changeProjectCategory">Concept Art</button>
+      <button class="btn btn-primary" @click="viewGraphicDesign">Graphic Design</button>
+      <button class="btn btn-primary" @click="viewConceptArt">Concept Art</button>
     </div>
     <div class="projectInnerContainer">
       <div class="outerProject" v-for="project in projects" v-bind:key="project._id">
@@ -45,8 +45,12 @@ export default {
     document.getElementById("app").classList.add("bgCover");
   },
   methods: {
-    changeProjectCategory() {
-      this.$emit("changeDesign");
+    viewGraphicDesign() {
+      this.$emit("graphicDesign");
+      this.getProjects();
+    },
+    viewConceptArt() {
+      this.$emit("conceptArt");
       this.getProjects();
     },
     async getProjects() {
