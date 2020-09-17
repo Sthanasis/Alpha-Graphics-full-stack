@@ -2,8 +2,8 @@
   <div style="height: 100vh;">
     <div class="projectContainer"></div>
     <div class="projectButtonContainer">
-      <button class="btn btn-primary">Graphic Design</button>
-      <button class="btn btn-primary">Concept Art</button>
+      <button class="btn btn-primary" @click="changeProjectCategory">Graphic Design</button>
+      <button class="btn btn-primary" @click="changeProjectCategory">Concept Art</button>
     </div>
     <div class="projectInnerContainer">
       <div class="outerProject" v-for="project in projects" v-bind:key="project._id">
@@ -38,16 +38,29 @@ export default {
   },
   props: {
     isAdmin: Boolean,
+    design: Boolean,
   },
   mounted() {
     this.getProjects();
     document.getElementById("app").classList.add("bgCover");
   },
   methods: {
+    changeProjectCategory() {
+      this.$emit("changeDesign");
+      this.getProjects();
+    },
     async getProjects() {
       try {
         const response = await apiCalls.getProjects();
-        this.projects = response.data.projects;
+        if (this.design) {
+          this.projects = response.data.projects.filter((project) => {
+            return project.type === "Graphic Design ";
+          });
+        } else {
+          this.projects = response.data.projects.filter((project) => {
+            return project.type === "Concept Art";
+          });
+        }
       } catch (err) {
         this.error = err.message;
       }
@@ -58,7 +71,6 @@ export default {
         if (response.data.status === "success") {
           this.id = id;
           this.project = response.data.data.project;
-          console.log(response);
         }
       } catch (err) {
         console.log(err);

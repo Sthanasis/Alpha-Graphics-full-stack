@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navBar :isAdmin="isAdmin" @adminLogout="adminLogout"></navBar>
-    <router-view :isAdmin="isAdmin"></router-view>
+    <router-view :isAdmin="isAdmin" :design="design" @changeDesign="changeDesign"></router-view>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       isAdmin: false,
+      design: true,
     };
   },
   methods: {
@@ -20,15 +21,10 @@ export default {
       this.isAdmin = false;
       this.$router.push("/");
     },
+    changeDesign() {
+      this.design = !this.design;
+    },
   },
-  // computed: {
-  //   isAdmin() {
-  //     if (localStorage.getItem("token")) {
-  //       return true;
-  //     }
-  //     return false;
-  //   },
-  // },
   watch: {
     $route(to, from) {
       if (
