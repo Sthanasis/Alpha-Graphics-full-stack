@@ -12,25 +12,34 @@
       >
         <div class="viewProject">
           <span>{{ project.title }}</span>
-          <button class="btn btn-primary">View Project</button>
+          <button class="btn btn-primary" @click="getProjectFromDB(project._id)">View Project</button>
+          <button
+            v-if="isAdmin"
+            class="btn btn-danger"
+            @click="deleteProject(project._id)"
+          >Delete Project</button>
         </div>
       </div>
     </div>
     <div v-else>
       <span>{{ error }}</span>
     </div>
+    <project v-if="id!==''" :id="id" :project="project" @closeProject="closeProject"></project>
   </div>
 </template>
 
 <script>
 import logo from "./Logo.vue";
-import ApiCalls from "../apiCalls";
+import project from "./Project.vue";
+import apiCalls from "../apiCalls";
 
 export default {
   data() {
     return {
       projects: [],
+      project: {},
       error: "",
+      id: "",
     };
   },
   props: { isAdmin: Boolean },
@@ -41,25 +50,44 @@ export default {
   },
   components: {
     logo,
+    project,
   },
   methods: {
     async createProject() {
-      await ApiCalls.insertProject(this.text);
-      this.projects = await ApiCalls.getProjects();
+      await apiCalls.insertProject(this.text);
+      this.projects = await apiCalls.getProjects();
     },
     async delete(id) {
-      await ApiCalls.deleteProject(id);
-      this.projects = await ApiCalls.getProjects();
+      await apiCalls.deleteProject(id);
+      this.projects = await apiCalls.getProjects();
     },
     async getData() {
       try {
-        const response = await ApiCalls.getProjects();
+        const response = await apiCalls.getProjects();
         for (let i = 0; i <= 2; i++) {
           this.projects.push(response.data.projects[i]);
         }
       } catch (err) {
         this.error = err.message;
       }
+    },
+    async getProjectFromDB(id) {
+      try {
+        const response = await apiCalls.getProject(id);
+        if (response.data.status === "success") {
+          this.id = id;
+          this.project = response.data.data.project;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    deleteProject(id) {
+      apiCalls.deleteProject(id);
+      this.$router.push("/");
+    },
+    closeProject() {
+      this.id = "";
     },
   },
 };

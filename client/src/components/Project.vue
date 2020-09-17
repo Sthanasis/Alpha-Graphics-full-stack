@@ -53,7 +53,7 @@ export default {
 }
 .layout {
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -63,15 +63,14 @@ export default {
 .titleContainer {
   flex-direction: column;
   display: flex;
-
   width: 34vw;
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 10vw;
   flex-wrap: wrap;
 }
 
 .imgContainer img {
-  height: 70vh;
+  height: 60vh;
   width: 70vw;
   margin: auto;
 }
