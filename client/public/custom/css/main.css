@@ -97,6 +97,16 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+
+.selected {
+  color: var(--DarkColor) !important;
+  background-color: var(--LightColor) !important;
+}
+
 .centerDelayed {
   -webkit-animation: slideIn 2s ease-in-out;
   animation: slideIn 2s ease-in-out;
@@ -105,6 +115,10 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: 2s;
+}
+
+.lockScroll {
+  overflow-y: hidden;
 }
 
 @keyframes fadeOut {

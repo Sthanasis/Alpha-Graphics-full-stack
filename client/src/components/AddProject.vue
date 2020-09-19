@@ -18,15 +18,14 @@
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" value />Graphic Design
+            <input type="radio" class="form-check-input" value="Graphic Design" v-model="type" />Graphic Design
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" value />Concept Art
+            <input type="radio" class="form-check-input" value="Concept Art" v-model="type" />Concept Art
           </label>
         </div>
-        <input type="text" :value="type" />
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Project Description</label>
           <textarea
@@ -63,10 +62,7 @@ export default {
       data.append("title", this.title);
       data.append("description", this.description);
       data.append("photo", document.getElementById("fileInput").files[0]);
-      data.append(
-        "type",
-        document.querySelector("input:checked").parentElement.textContent.trim()
-      );
+      data.append("type", this.type);
       console.log(data);
       //document.getElementById("exampleFormControlFile1");
       apiCalls.insertProject(data).then((res) => {

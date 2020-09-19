@@ -2,8 +2,16 @@
   <div style="height: 100vh;">
     <div class="projectContainer"></div>
     <div class="projectButtonContainer">
-      <button class="btn btn-primary" @click="viewGraphicDesign">Graphic Design</button>
-      <button class="btn btn-primary" @click="viewConceptArt">Concept Art</button>
+      <button
+        class="btn btn-primary"
+        :class="{ selected: design }"
+        @click="viewGraphicDesign($event)"
+      >Graphic Design</button>
+      <button
+        class="btn btn-primary"
+        :class="{ selected: !design }"
+        @click="viewConceptArt($event)"
+      >Concept Art</button>
     </div>
     <div class="projectInnerContainer">
       <div class="outerProject" v-for="project in projects" v-bind:key="project._id">
@@ -45,13 +53,18 @@ export default {
     document.getElementById("app").classList.add("bgCover");
   },
   methods: {
-    viewGraphicDesign() {
+    viewGraphicDesign(event) {
       this.$emit("graphicDesign");
       this.getProjects();
+      document.querySelector(".selected").classList.remove("selected");
+      event.target.classList.add("selected");
     },
-    viewConceptArt() {
+    viewConceptArt(event) {
       this.$emit("conceptArt");
       this.getProjects();
+      document.querySelector(".selected").classList.remove("selected");
+
+      event.target.classList.add("selected");
     },
     async getProjects() {
       try {
@@ -126,7 +139,7 @@ export default {
   position: absolute;
   top: 0;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   top: 30vh;
   height: 70vh;
   width: 100vw;

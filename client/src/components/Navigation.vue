@@ -45,7 +45,7 @@ nav {
   height: 5rem;
   position: fixed;
   width: 100vw;
-  z-index: 3;
+  z-index: 1;
 }
 
 nav .navDestination {

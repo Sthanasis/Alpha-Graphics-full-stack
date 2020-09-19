@@ -59,7 +59,6 @@ export default {
 }
 
 #mainLogo {
-  z-index: 1;
   font-family: "Gilroy";
 }
 
