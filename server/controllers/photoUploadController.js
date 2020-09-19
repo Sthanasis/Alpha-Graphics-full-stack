@@ -6,7 +6,7 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
-    cb(null, `project-${req.body.title}.${ext}`);
+    cb(null, `project-${req.body.title.split(" ").join("")}.${ext}`);
   },
 });
 
