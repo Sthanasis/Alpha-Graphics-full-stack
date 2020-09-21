@@ -122,8 +122,12 @@ a {
 }
 
 @media screen and(max-width: 992px) {
-  body > * {
-    font-size: 1rem;
+  body {
+    --fontSizeS: 1rem;
+    --fontSizeSM: 1.2rem;
+    --fontSizeM: 1.5rem;
+    --fontSizeML: 2rem;
+    --fontSizeL: 1rem;
   }
 }
 

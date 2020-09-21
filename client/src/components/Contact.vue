@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .container {
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: var(--fontSizeSM);
   border-radius: 0.5em;
   box-shadow: 9px 9px 19px 12px rgba(0, 0, 0, 0.7);
   width: fit-content;
@@ -58,9 +58,7 @@ export default {
 
 .landing {
   display: flex;
-
   height: 100vh;
-
   background-color: var(--DarkColor);
   opacity: 0.5;
 }

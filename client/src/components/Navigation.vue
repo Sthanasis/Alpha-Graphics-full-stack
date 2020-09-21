@@ -9,7 +9,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span data-icon="burger-menu"></span>
     </button>
     <div id="NavPageContainer">
       <router-link id="logoContainer" class="navDestination" data-icon="logo" to="/"></router-link>

@@ -82,12 +82,12 @@ export default {
 }
 
 .name {
-  font-size: 7rem;
+  font-size: calc(var(--fontSizeL) * 2);
 }
 
 .firstName {
   background-color: var(--RedColor);
-  margin-right: 15rem;
+  margin-right: 15vw;
 }
 
 .lastName {
@@ -103,7 +103,7 @@ export default {
 
 .description {
   color: var(--DarkColor);
-  font-size: 1.2rem;
+  font-size: var(--fontSizeSM);
   background-color: var(--MainText);
   width: fit-content;
   width: -moz-fit-content;

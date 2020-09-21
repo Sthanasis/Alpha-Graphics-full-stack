@@ -78,7 +78,7 @@ export default {
 .title {
   margin-bottom: 1rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: var(--fontSizeSM);
 }
 
 .description {

@@ -1,16 +1,21 @@
 *[data-icon]:before {
-  font-size: 2rem;
+  font-size: var(--fontSizeML);
+}
+
+[data-icon="burger-menu"]:before {
+  content: "\00C5";
+  color: var(--MainText);
 }
 
 [data-icon="logo"]:before {
   content: "\00C3";
-  font-size: 3rem;
+  font-size: var(--fontSizeL);
   font-weight: normal;
 }
 
 [data-icon="landing"]:before {
   content: "\00C4";
-  font-size: 20rem;
+  font-size: calc(var(--fontSizeL) * 6);
 }
 
 [data-icon="facebook"]:before {
