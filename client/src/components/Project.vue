@@ -5,10 +5,7 @@
     <div class="imgContainer center">
       <div class="titleContainer">
         <div class="title" style="text-align: start;">{{project.title}}</div>
-        <div
-          class="description"
-          style="text-align: start;"
-        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus voluptates voluptatem soluta numquam dolorem eos! Dolore voluptate nulla praesentium blanditiis repellat ipsum, nihil modi magnam iure consectetur non, amet ex?</div>
+        <div class="description" style="text-align: start;">{{project.description}}</div>
       </div>
       <img :src="`../img/${project.project}`" alt />
       <!-- <img src="../assets/SPIDERMAN.svg" alt /> -->

@@ -13,6 +13,8 @@ const router = express.Router();
 router.use(adminController.isAdmin);
 
 router.get("/", projectController.getAllProjects);
+router.get("/conceptArt", projectController.getConceptArtProjects);
+router.get("/graphicDesign", projectController.getGraphicDesignProjects);
 router.get("/:id", projectController.getProject);
 router.post(
   "/",

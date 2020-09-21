@@ -49,35 +49,39 @@ export default {
     design: Boolean,
   },
   mounted() {
-    this.getProjects();
+    if (this.design) {
+      this.getGraphicDesign();
+    } else {
+      this.getConceptArt();
+    }
     document.getElementById("app").classList.add("bgCover");
   },
   methods: {
     viewGraphicDesign(event) {
       this.$emit("graphicDesign");
-      this.getProjects();
+      this.getGraphicDesign();
       document.querySelector(".selected").classList.remove("selected");
       event.target.classList.add("selected");
     },
     viewConceptArt(event) {
       this.$emit("conceptArt");
-      this.getProjects();
+      this.getConceptArt();
       document.querySelector(".selected").classList.remove("selected");
-
       event.target.classList.add("selected");
     },
-    async getProjects() {
+    async getConceptArt() {
       try {
-        const response = await apiCalls.getProjects();
-        if (this.design) {
-          this.projects = response.data.projects.filter((project) => {
-            return project.type === "Graphic Design ";
-          });
-        } else {
-          this.projects = response.data.projects.filter((project) => {
-            return project.type === "Concept Art";
-          });
-        }
+        const response = await apiCalls.getConceptArtProjects();
+        this.projects = response.data.data.projects;
+        console.log(response);
+      } catch (err) {
+        this.error = err.message;
+      }
+    },
+    async getGraphicDesign() {
+      try {
+        const response = await apiCalls.getGraphicDesignProjects();
+        this.projects = response.data.data.projects;
       } catch (err) {
         this.error = err.message;
       }

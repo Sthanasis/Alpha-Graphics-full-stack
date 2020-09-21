@@ -1,6 +1,6 @@
 <template>
   <div class="landingLogo">
-    <div data-icon="border" class="border leftBorder"></div>
+    <!-- <div data-icon="border" class="border leftBorder"></div> -->
     <!-- <div class="backgroundBox"></div> -->
     <div data-icon="landing" class="center" id="mainLogo">
       <div id="footerLogo">Graphics</div>
@@ -13,11 +13,14 @@
       </div>
       <div class="description">
         Graphics Designer
-        <span>-</span> Concept Artist
-        <span data-icon="phone"></span>
+        <span>-</span>
+        <span>
+          Concept Artist
+          <span data-icon="phone"></span>
+        </span>
       </div>
     </div>
-    <div data-icon="border" class="border rightBorder"></div>
+    <!-- <div data-icon="border" class="border rightBorder"></div> -->
   </div>
 </template>
 

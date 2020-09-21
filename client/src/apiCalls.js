@@ -17,6 +17,34 @@ class ApiCalls {
     });
   }
 
+  static async getGraphicDesignProjects() {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `${url}graphicDesign`,
+      });
+      if (res.data.status === "success") {
+        return res;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  static async getConceptArtProjects() {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `${url}conceptArt`,
+      });
+      if (res.data.status === "success") {
+        return res;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   static async getProject(id) {
     try {
       const res = await axios({

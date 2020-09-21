@@ -41,6 +41,10 @@ a {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
 }
 
+.router-link-exact-active {
+  color: var(--LightColor);
+}
+
 .landingLogo {
   display: flex;
   width: fit-content;
@@ -93,6 +97,16 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+
+.selected {
+  color: var(--DarkColor) !important;
+  background-color: var(--LightColor) !important;
+}
+
 .centerDelayed {
   -webkit-animation: slideIn 2s ease-in-out;
   animation: slideIn 2s ease-in-out;
@@ -101,6 +115,10 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: 2s;
+}
+
+.lockScroll {
+  overflow-y: hidden;
 }
 
 @keyframes fadeOut {

@@ -12,7 +12,46 @@ exports.getAllProjects = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+
+exports.getConceptArtProjects = async (req, res) => {
+  try {
+    const projects = await Project.find({ type: "Concept Art" });
+    res.status(200).json({
+      status: "success",
+      results: projects.length,
+      data: {
+        projects,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+
+exports.getGraphicDesignProjects = async (req, res) => {
+  try {
+    const projects = await Project.find({ type: "Graphic Design" });
+    res.status(200).json({
+      status: "success",
+      results: projects.length,
+      data: {
+        projects,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
 };
 
@@ -26,7 +65,10 @@ exports.getProject = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
 };
 
@@ -46,7 +88,10 @@ exports.createProject = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
 };
 
@@ -65,6 +110,9 @@ exports.deleteProject = async (req, res) => {
       message: "File deleted",
     });
   } catch (err) {
-    console.log(err);
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
 };

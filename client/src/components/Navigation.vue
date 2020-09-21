@@ -1,5 +1,16 @@
 <template>
   <nav>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div id="NavPageContainer">
       <router-link id="logoContainer" class="navDestination" data-icon="logo" to="/"></router-link>
       <router-link class="navDestination" to="/portofolio">Portofolio</router-link>
@@ -39,6 +50,10 @@ export default {
 </script>
 
 <style scoped>
+.navbar-toggler {
+  display: none;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -83,5 +98,15 @@ nav .navDestination {
 .colored {
   background-color: var(--DarkColor);
   transition: 0.5s;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  #NavPageContainer {
+    display: none;
+  }
 }
 </style>

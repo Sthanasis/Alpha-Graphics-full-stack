@@ -64,8 +64,10 @@ export default {
     async getData() {
       try {
         const response = await apiCalls.getProjects();
-        for (let i = 0; i <= 2; i++) {
-          this.projects.push(response.data.projects[i]);
+        if (response.results >= 3) {
+          this.projects = response.data.projects.slice(-3).reverse();
+        } else {
+          this.projects = response.data.projects.reverse();
         }
       } catch (err) {
         this.error = err.message;
@@ -84,7 +86,7 @@ export default {
     },
     deleteProject(id) {
       apiCalls.deleteProject(id);
-      this.$router.push("/");
+      this.getData();
     },
     closeProject() {
       this.id = "";

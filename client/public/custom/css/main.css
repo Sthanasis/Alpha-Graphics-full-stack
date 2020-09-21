@@ -121,6 +121,12 @@ a {
   overflow-y: hidden;
 }
 
+@media screen and(max-width: 992px) {
+  body > * {
+    font-size: 1rem;
+  }
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
