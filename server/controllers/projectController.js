@@ -99,7 +99,7 @@ exports.deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
 
-    fs.unlink(`${__dirname}/../dist/img/${project.project}`, (err) => {
+    fs.unlink(`${__dirname}/../assets/img/${project.project}`, (err) => {
       if (err) {
         console.log(err.message);
       }

@@ -21,7 +21,7 @@ a {
 }
 
 .bgCover {
-  background-size: cover;
+  background-size: cover !important;
 }
 
 .viewProject {
@@ -65,20 +65,20 @@ a {
 }
 
 .fade-in {
-  animation: fadeIn ease-out 4s;
-  -webkit-animation: fadeIn ease-out 4s;
-  -moz-animation: fadeIn ease-out 4s;
-  -o-animation: fadeIn ease-out 4s;
-  -ms-animation: fadeIn ease-out 4s;
+  animation: fadeIn ease-out 2s;
+  -webkit-animation: fadeIn ease-out 2s;
+  -moz-animation: fadeIn ease-out 2s;
+  -o-animation: fadeIn ease-out 2s;
+  -ms-animation: fadeIn ease-out 2s;
   opacity: 1 !important;
 }
 
 .fade-out {
-  animation: fadeOut ease-out 4s;
-  -webkit-animation: fadeOut ease-out 4s;
-  -moz-animation: fadeOut ease-out 4s;
-  -o-animation: fadeOut ease-out 4s;
-  -ms-animation: fadeOut ease-out 4s;
+  animation: fadeOut ease-out 2s;
+  -webkit-animation: fadeOut ease-out 2s;
+  -moz-animation: fadeOut ease-out 2s;
+  -o-animation: fadeOut ease-out 2s;
+  -ms-animation: fadeOut ease-out 2s;
   opacity: 0;
 }
 
@@ -119,6 +119,34 @@ a {
 
 .lockScroll {
   overflow-y: hidden;
+}
+
+@media (max-width: 992px) {
+  #app {
+    background-size: 150vh;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .landingLogo {
+    height: 70vh;
+  }
+
+  .centerDelayed {
+    top: 30%;
+  }
+
+  .center {
+    top: 40%;
+  }
+
+  .viewProject {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
 }
 
 @keyframes fadeOut {

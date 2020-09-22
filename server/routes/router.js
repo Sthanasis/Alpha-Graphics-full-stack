@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const adminController = require("../controllers/adminController");
 const projectController = require("../controllers/projectController");
-const fileUploadController = require("../controllers/fileUploadController");
+const fileController = require("../controllers/fileController");
 
 dotenv.config({
   path: "../config.env",
@@ -16,6 +16,7 @@ router.use(adminController.isAdmin);
 router.get("/", projectController.getAllProjects);
 //Get concept Art route
 router.get("/conceptArt", projectController.getConceptArtProjects);
+
 //Get graphic Design route
 router.get("/graphicDesign", projectController.getGraphicDesignProjects);
 //Get a single project route
@@ -23,19 +24,18 @@ router.get("/:id", projectController.getProject);
 //Create project route
 router.post(
   "/",
-  fileUploadController.updloadProjectPhoto,
+  fileController.updloadProjectPhoto,
   projectController.createProject
 );
 //Update cv route
-router.post(
-  "/cv",
-  fileUploadController.updateCV,
-  fileUploadController.updloadCV
-);
 //delete project route
 router.delete("/:id", projectController.deleteProject);
 
 router.post("/login", adminController.login);
 router.get("/admin/logout", adminController.logout);
+
+router.post("/cv", fileController.updateCV, fileController.updloadCV);
+//Download CV
+router.get("/file/cv", fileController.downloadCV);
 
 module.exports = router;

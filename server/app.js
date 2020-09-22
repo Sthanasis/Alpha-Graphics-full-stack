@@ -19,16 +19,8 @@ dotenv.config({
 
 app.use("/api/router", router);
 
-// app.get("/api/login", (req, res) => {
-//   res.send("this is the auth login route");
-// });
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(`${__dirname}/dist`));
-
-  // app.get("/api/login", (req, res) => {
-  //   res.send("this is the auth login route");
-  // });
 
   app.get(/.*/, (req, res) => {
     res.status(200).sendFile(`${__dirname}/dist/index.html`);

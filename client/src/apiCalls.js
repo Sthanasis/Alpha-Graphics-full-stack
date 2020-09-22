@@ -59,6 +59,19 @@ class ApiCalls {
     }
   }
 
+  static async getCV() {
+    try {
+      const res = await axios({
+        method: "GET",
+        url: `${url}file/cv`,
+        responseType: "blob",
+      });
+      return res;
+    } catch (err) {
+      alert(err);
+    }
+  }
+
   //Create Post
   static async insertProject(data) {
     try {
