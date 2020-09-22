@@ -59,6 +59,19 @@ class ApiCalls {
     }
   }
 
+  static async postCV(data) {
+    try {
+      const res = await axios({
+        method: "POST",
+        url: `${url}cv`,
+        data,
+      });
+      return res;
+    } catch (err) {
+      alert(err);
+    }
+  }
+
   static async getCV() {
     try {
       const res = await axios({
@@ -72,7 +85,7 @@ class ApiCalls {
     }
   }
 
-  //Create Post
+  //Create
   static async insertProject(data) {
     try {
       const res = await axios({
@@ -88,7 +101,7 @@ class ApiCalls {
     }
   }
 
-  //Delete Post
+  //Delete
   static async deleteProject(id) {
     try {
       const res = await axios({

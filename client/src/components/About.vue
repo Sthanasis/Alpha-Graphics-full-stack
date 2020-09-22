@@ -2,7 +2,15 @@
   <div style="height: 100vh">
     <div>
       <div>
-        <button class="center btn btn-warning" @click="downloadCV">download cv</button>
+        <button class="center btn btn-warning" @click="downloadCV" style="top: 70%">download cv</button>
+        <input
+          v-if="isAdmin"
+          class="center"
+          type="file"
+          id="cvInput"
+          accept="application/pdf"
+          style="top: 40%"
+        />
         <button v-if="isAdmin" class="center btn btn-success" @click="uploadNewCv">upload cv</button>
       </div>
     </div>
@@ -17,6 +25,10 @@ export default {
   },
   props: {
     isAdmin: Boolean,
+  },
+  mounted() {
+    document.getElementById("app").classList.add("bgCover");
+    document.getElementById("logoContainer").classList.add("visible");
   },
   methods: {
     downloadCV() {
@@ -35,6 +47,13 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    uploadNewCv() {
+      const data = new FormData();
+      data.append("cv", document.getElementById("cvInput").files[0]);
+      apiCalls.postCV(data).then((res) => {
+        console.log(res.status);
+      });
     },
   },
 };

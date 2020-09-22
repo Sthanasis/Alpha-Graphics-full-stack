@@ -1,7 +1,5 @@
 const multer = require("multer");
 const fs = require("fs");
-const mime = require("mime");
-var path = require("path");
 
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,7 +22,6 @@ const multerFilter = (req, file, cb) => {
     file.mimetype.startsWith("image") ||
     file.mimetype === "application/pdf"
   ) {
-    console.log(file);
     cb(null, true);
   } else {
     cb(new Error(), false);
@@ -43,7 +40,6 @@ exports.updateCV = (req, res, next) => {
         if (err) {
           console.log(err.message);
         }
-        console.log("succeed");
       });
     }
     next();
@@ -55,6 +51,18 @@ exports.updateCV = (req, res, next) => {
 exports.updloadProjectPhoto = upload.single("photo");
 
 exports.updloadCV = upload.single("cv");
+
+exports.validateFileUpload = (req, res) => {
+  if (req.body.file !== null) {
+    res.status(200).json({
+      status: "success",
+    });
+  } else {
+    res.status(500).json({
+      status: "fail",
+    });
+  }
+};
 
 exports.downloadCV = (req, res) => {
   const file = `${__dirname}/../assets/alphaGraphicsCV.pdf`;

@@ -34,7 +34,12 @@ router.delete("/:id", projectController.deleteProject);
 router.post("/login", adminController.login);
 router.get("/admin/logout", adminController.logout);
 
-router.post("/cv", fileController.updateCV, fileController.updloadCV);
+router.post(
+  "/cv",
+  fileController.updateCV,
+  fileController.updloadCV,
+  fileController.validateFileUpload
+);
 //Download CV
 router.get("/file/cv", fileController.downloadCV);
 

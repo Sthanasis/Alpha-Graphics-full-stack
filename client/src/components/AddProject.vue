@@ -63,7 +63,7 @@ export default {
       data.append("description", this.description);
       data.append("photo", document.getElementById("fileInput").files[0]);
       data.append("type", this.type);
-      console.log(data);
+
       //document.getElementById("exampleFormControlFile1");
       apiCalls.insertProject(data).then((res) => {
         if (res.data.status === "success") {
