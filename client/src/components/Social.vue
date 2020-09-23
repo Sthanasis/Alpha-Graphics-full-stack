@@ -6,7 +6,12 @@
       data-icon="instagram"
       href="https://www.instagram.com/alphagraphics98/"
     ></a>
-    <div class="social" data-icon="linkedin"></div>
+    <a
+      class="social"
+      href="https://www.linkedin.com/in/alexandros-efthymiou-b936651b2/"
+      data-icon="linkedin"
+    >
+    </a>
   </div>
 </template>
 

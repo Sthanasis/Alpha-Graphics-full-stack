@@ -2,7 +2,9 @@
   <div>
     <div class="landing"></div>
     <div class="container widthFitContent">
-      <div style="text-align:start;font-weight:bold;letter-spacing:1px;">Contact Me</div>
+      <div style="text-align: start; font-weight: bold; letter-spacing: 1px">
+        Contact Me
+      </div>
       <div class="contact-phone">
         <div data-icon="phone"></div>
         <div class="fitcenter">+30 6976 732659</div>
@@ -18,6 +20,7 @@
 <script>
 export default {
   mounted() {
+    this.$emit("toggleMenuOff");
     document.getElementById("app").classList.add("bgCover");
     document.getElementById("logoContainer").classList.add("visible");
   },
@@ -52,5 +55,12 @@ export default {
   height: -moz-fit-content;
   margin: auto 1rem auto 2rem;
   letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+  .container {
+    font-size: var(--fontSizeSM);
+    padding: 0.5rem 1rem;
+  }
 }
 </style>

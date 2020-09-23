@@ -12,19 +12,31 @@
       >
         <div class="viewProject widthFitContent">
           <span>{{ project.title }}</span>
-          <button class="btn btn-primary" @click="getProjectFromDB(project._id)">View Project</button>
+          <button
+            class="btn btn-primary"
+            @click="getProjectFromDB(project._id)"
+          >
+            View Project
+          </button>
           <button
             v-if="isAdmin"
             class="btn btn-danger"
             @click="deleteProject(project._id)"
-          >Delete Project</button>
+          >
+            Delete Project
+          </button>
         </div>
       </div>
     </div>
     <div v-else>
       <span>{{ error }}</span>
     </div>
-    <project v-if="id!==''" :id="id" :project="project" @closeProject="closeProject"></project>
+    <project
+      v-if="id !== ''"
+      :id="id"
+      :project="project"
+      @closeProject="closeProject"
+    ></project>
   </div>
 </template>
 
@@ -43,7 +55,9 @@ export default {
     };
   },
   props: { isAdmin: Boolean },
-  mounted() {},
+  mounted() {
+    this.$emit("toggleMenuOff");
+  },
   async created() {
     this.getData();
     document.getElementById("app").classList.remove("bgCover");
@@ -117,7 +131,7 @@ h1 {
   background-position-x: 50vw;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
   .project {
     background-position-x: 0 !important;
     background-position-y: 20vh;
@@ -125,6 +139,10 @@ h1 {
   }
   .landing-container {
     padding-bottom: 10vh;
+  }
+
+  h1 {
+    font-size: var(--fontSizeML);
   }
 }
 </style>

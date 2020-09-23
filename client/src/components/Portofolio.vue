@@ -1,35 +1,55 @@
 <template>
-  <div style="height: 100vh;">
+  <div style="height: 100vh">
     <div class="projectContainer"></div>
     <div class="projectButtonContainer">
       <button
         class="btn btn-primary"
         :class="{ selected: design }"
         @click="viewGraphicDesign($event)"
-      >Graphic Design</button>
+      >
+        Graphic Design
+      </button>
       <button
         class="btn btn-primary"
         :class="{ selected: !design }"
         @click="viewConceptArt($event)"
-      >Concept Art</button>
+      >
+        Concept Art
+      </button>
     </div>
     <div class="projectInnerContainer">
-      <div class="outerProject" v-for="project in projects" v-bind:key="project._id">
+      <div
+        class="outerProject"
+        v-for="project in projects"
+        v-bind:key="project._id"
+      >
         <div class="project widthFitContent" :id="project._id">
-          <img :src="`../img/${project.project}`" alt style="width:15rem" />
+          <img :src="`../img/${project.project}`" alt style="width: 15rem" />
           <div class="details">
-            <span>{{project.title}}</span>
-            <button class="btn btn-primary" @click="getProjectFromDB(project._id)">View Project</button>
+            <span>{{ project.title }}</span>
+            <button
+              class="btn btn-primary"
+              @click="getProjectFromDB(project._id)"
+            >
+              View Project
+            </button>
             <button
               class="btn btn-danger deleteProject"
               @click="deleteProject(project._id)"
               v-if="isAdmin"
-            >Delete Project</button>
+            >
+              Delete Project
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <project v-if="id!==''" :id="id" :project="project" @closeProject="closeProject"></project>
+    <project
+      v-if="id !== ''"
+      :id="id"
+      :project="project"
+      @closeProject="closeProject"
+    ></project>
   </div>
 </template>
 
@@ -49,6 +69,7 @@ export default {
     design: Boolean,
   },
   mounted() {
+    this.$emit("toggleMenuOff");
     if (this.design) {
       this.getGraphicDesign();
     } else {
@@ -144,6 +165,7 @@ export default {
   top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
   top: 30vh;
   height: 70vh;
   width: 100vw;
@@ -191,5 +213,23 @@ img:hover {
   margin: auto;
   border-radius: 2em;
   margin-bottom: 1em;
+}
+
+@media (max-width: 1250px) {
+  .projectInnerContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectInnerContainer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 2vh;
+  }
 }
 </style>

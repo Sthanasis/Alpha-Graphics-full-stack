@@ -42,10 +42,8 @@ export default {
   mounted() {
     document.getElementById("mainLogo").classList.add("centerDelayed");
     this.fadeIn(document.getElementById("nameLogo"));
-    this.fadeIn(document.getElementById("logoContainer"));
+
     this.fadeOut(document.getElementById("mainLogo"));
-    document.getElementById("logoContainer").style.opacity = 0;
-    //document.getElementById("logoContainer").classList.remove("visible");
   },
 };
 </script>
@@ -128,12 +126,11 @@ export default {
     display: flex;
     flex-direction: column;
   }
-  #logoContainer {
-    animation: none;
-  }
+
   #footerLogo {
     margin-left: 0;
     position: relative;
+    text-align: end;
   }
   .name {
     font-size: calc(var(--fontSizeM) * 2);
@@ -142,7 +139,7 @@ export default {
     margin-left: 1rem;
   }
   .description {
-    font-size: var(--fontSizeS);
+    font-size: var(--fontSizeSM);
   }
 }
 </style>

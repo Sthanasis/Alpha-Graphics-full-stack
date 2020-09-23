@@ -45,3 +45,7 @@
 [data-icon="email"]:before {
   content: "\00A3";
 }
+
+[data-icon="download"]:before {
+  content: "\00C6";
+}

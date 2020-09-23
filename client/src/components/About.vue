@@ -7,7 +7,7 @@
       </div>
       <div class="header alignLeft">
         <div class="widthFitContent">
-          <h1 style="font-weight: bold; letter-spacing: 1px;">About Me</h1>
+          <h1 style="font-weight: bold; letter-spacing: 1px">About Me</h1>
         </div>
       </div>
       <div class="artistName widthFitContent alignLeft">
@@ -24,25 +24,41 @@
       <div class="text alignLeft">
         I am a Graphic Designer and a Concept Artist.
         <br />I am young and passionate about designing, full of
-        <br />creativity and will on making the world a better place.
-        <br />My Goal is to leave my mark on the Desing field by
-        <br />showing my graphic skills with the pencil and the mouse.
+        <br />creativity and will on making the world a better place. <br />My
+        Goal is to leave my mark on the Desing field by <br />showing my graphic
+        skills with the pencil and the mouse.
       </div>
       <div class="download alignLeft">
         <div class="btn-container widthFitContent">
-          <btn class="btn custom-btn" data-icon="download" @click="downloadCV"></btn>
+          <button
+            class="btn custom-btn"
+            data-icon="download"
+            @click="downloadCV"
+          ></button>
         </div>
         <div
           class="widthFitContent"
-          style="display:flex; background-color: var(--LightColor); margin-left: .5em"
+          style="
+            display: flex;
+            background-color: var(--LightColor);
+            margin-left: 0.5em;
+          "
         >
           <div class="btn-description">Download Resume</div>
         </div>
       </div>
     </div>
 
-    <input v-if="isAdmin" class type="file" id="cvInput" accept="application/pdf" />
-    <button v-if="isAdmin" class="btn btn-success" @click="uploadNewCv">upload cv</button>
+    <input
+      v-if="isAdmin"
+      class
+      type="file"
+      id="cvInput"
+      accept="application/pdf"
+    />
+    <button v-if="isAdmin" class="btn btn-success" @click="uploadNewCv">
+      upload cv
+    </button>
   </div>
 </template>
 
@@ -56,6 +72,7 @@ export default {
     isAdmin: Boolean,
   },
   mounted() {
+    this.$emit("toggleMenuOff");
     document.getElementById("app").classList.add("bgCover");
     document.getElementById("logoContainer").classList.add("visible");
   },
@@ -190,5 +207,34 @@ export default {
 
 .alignLeft {
   text-align: start;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.7fr 1fr 1fr;
+    margin-top: 10vh;
+    grid-template-areas:
+      "artistPhoto"
+      "header"
+      "description"
+      "text"
+      "download";
+  }
+
+  .artistPhoto img {
+    margin: 0 auto;
+  }
+
+  .widthFitContent {
+    margin: 0 auto;
+  }
+  .btn-container {
+    margin-right: 0.5em;
+  }
+  .text {
+    margin: auto;
+    font-size: var(--fontSizeSM);
+  }
 }
 </style>

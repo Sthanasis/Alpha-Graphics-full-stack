@@ -1,11 +1,18 @@
 <template>
   <div id="app">
-    <navBar :isAdmin="isAdmin" @adminLogout="adminLogout"></navBar>
+    <navBar
+      :isAdmin="isAdmin"
+      @adminLogout="adminLogout"
+      :expanded="expanded"
+      @toggleMenu="toggleMenu"
+    ></navBar>
     <router-view
       :isAdmin="isAdmin"
       :design="design"
+      :expanded="expanded"
       @graphicDesign="graphicDesign"
       @conceptArt="conceptArt"
+      @toggleMenuOff="toggleMenuOff"
     ></router-view>
   </div>
 </template>
@@ -19,6 +26,7 @@ export default {
     return {
       isAdmin: false,
       design: true,
+      expanded: false,
     };
   },
   methods: {
@@ -31,6 +39,12 @@ export default {
     },
     conceptArt() {
       this.design = false;
+    },
+    toggleMenu() {
+      this.expanded = !this.expanded;
+    },
+    toggleMenuOff() {
+      this.expanded = false;
     },
   },
   watch: {

@@ -11,10 +11,20 @@
   --fontSizeL: 3rem;
 }
 
+@media (max-width: 1250px) {
+  :root {
+    --fontSizeS: 1rem;
+    --fontSizeSM: 1.2rem;
+    --fontSizeM: 1.5rem;
+    --fontSizeML: 2rem;
+    --fontSizeL: 3rem;
+  }
+}
+
 @media (max-width: 992px) {
   :root {
-    --fontSizeS: 0.8rem;
-    --fontSizeSM: 1rem;
+    --fontSizeS: 0.7rem;
+    --fontSizeSM: 0.8rem;
     --fontSizeM: 1.2rem;
     --fontSizeML: 1.5rem;
     --fontSizeL: 2rem;
