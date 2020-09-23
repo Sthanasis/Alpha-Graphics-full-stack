@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="landing"></div>
-    <div class="container">
+    <div class="container widthFitContent">
       <div style="text-align:start;font-weight:bold;letter-spacing:1px;">Contact Me</div>
       <div class="contact-phone">
         <div data-icon="phone"></div>
@@ -30,8 +30,6 @@ export default {
   font-size: var(--fontSizeSM);
   border-radius: 0.5em;
   box-shadow: 9px 9px 19px 12px rgba(0, 0, 0, 0.7);
-  width: fit-content;
-  width: -moz-fit-content;
   background-color: var(--DarkColor);
   position: absolute;
   top: 40%;
@@ -54,12 +52,5 @@ export default {
   height: -moz-fit-content;
   margin: auto 1rem auto 2rem;
   letter-spacing: 1px;
-}
-
-.landing {
-  display: flex;
-  height: 100vh;
-  background-color: var(--DarkColor);
-  opacity: 0.5;
 }
 </style>

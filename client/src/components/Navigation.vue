@@ -8,10 +8,11 @@
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      @click="expanded = !expanded"
     >
       <span data-icon="burger-menu"></span>
     </button>
-    <div id="NavPageContainer">
+    <div id="NavPageContainer" :class="{isExpanded: expanded}">
       <router-link id="logoContainer" class="navDestination" data-icon="logo" to="/"></router-link>
       <router-link class="navDestination" to="/portofolio">Portofolio</router-link>
       <router-link class="navDestination" to="/about">About</router-link>
@@ -30,7 +31,9 @@ import apiCalls from "../apiCalls.js";
 
 export default {
   data() {
-    return {};
+    return {
+      expanded: false,
+    };
   },
   props: { isAdmin: Boolean },
   methods: {
@@ -41,6 +44,7 @@ export default {
         }
       });
     },
+    toggleMenu() {},
   },
   name: "Navigation",
   components: {
@@ -57,7 +61,7 @@ export default {
 nav {
   display: flex;
   justify-content: space-around;
-  height: 5rem;
+  height: 10vh;
   position: fixed;
   width: 100vw;
   z-index: 1;
@@ -107,6 +111,16 @@ nav .navDestination {
 
   #NavPageContainer {
     display: none;
+    flex-direction: column;
+    height: 90vh;
+    background-color: var(--DarkColor);
+    width: 100vw;
+    position: absolute;
+    top: 10vh;
+  }
+
+  .isExpanded {
+    display: flex !important;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="landingLogo">
+  <div class="landingLogo widthFitContent">
     <!-- <div data-icon="border" class="border leftBorder"></div> -->
     <!-- <div class="backgroundBox"></div> -->
     <div data-icon="landing" class="center" id="mainLogo">
@@ -11,7 +11,7 @@
         <br />
         <span class="lastName">Efthymiou</span>
       </div>
-      <div class="description">
+      <div class="description widthFitContent">
         Graphics Designer
         <span>-</span>
         <span>
@@ -105,8 +105,6 @@ export default {
   color: var(--DarkColor);
   font-size: var(--fontSizeSM);
   background-color: var(--MainText);
-  width: fit-content;
-  width: -moz-fit-content;
   padding: 0.5rem;
   float: right;
 }
@@ -117,11 +115,31 @@ export default {
 
 #footerLogo {
   text-transform: capitalize;
-  font-size: 3rem;
+  font-size: var(--fontSizeL);
   color: var(--LightColor);
   position: absolute;
   letter-spacing: 0.4rem;
   margin-top: -8rem;
   margin-left: 15rem;
+}
+
+@media (max-width: 992px) {
+  #mainLogo {
+    display: flex;
+    flex-direction: column;
+  }
+  #logoContainer {
+    animation: none;
+  }
+  #footerLogo {
+    margin-left: 0;
+    position: relative;
+  }
+  .name {
+    font-size: calc(var(--fontSizeM) * 2);
+  }
+  .lastName {
+    margin-left: 1rem;
+  }
 }
 </style>

@@ -10,7 +10,7 @@
         :id="`${project._id}`"
         :style="`background-image: url(../img/${project.project};`"
       >
-        <div class="viewProject">
+        <div class="viewProject widthFitContent">
           <span>{{ project.title }}</span>
           <button class="btn btn-primary" @click="getProjectFromDB(project._id)">View Project</button>
           <button

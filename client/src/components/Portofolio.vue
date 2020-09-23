@@ -15,7 +15,7 @@
     </div>
     <div class="projectInnerContainer">
       <div class="outerProject" v-for="project in projects" v-bind:key="project._id">
-        <div class="project" :id="project._id">
+        <div class="project widthFitContent" :id="project._id">
           <img :src="`../img/${project.project}`" alt style="width:15rem" />
           <div class="details">
             <span>{{project.title}}</span>
@@ -184,8 +184,6 @@ img:hover {
 }
 
 .project {
-  width: fit-content;
-  width: -moz-fit-content;
   display: flex;
 }
 

@@ -53,7 +53,7 @@ exports.updloadProjectPhoto = upload.single("photo");
 exports.updloadCV = upload.single("cv");
 
 exports.validateFileUpload = (req, res) => {
-  if (req.body.file !== null) {
+  if (req.body.file) {
     res.status(200).json({
       status: "success",
     });
