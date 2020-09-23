@@ -141,5 +141,8 @@ export default {
   .lastName {
     margin-left: 1rem;
   }
+  .description {
+    font-size: var(--fontSizeS);
+  }
 }
 </style>

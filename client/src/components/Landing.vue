@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="landing-container">
     <logo></logo>
     <h1>Latest Projects!</h1>
     <div v-if="error === ''">
@@ -107,6 +107,7 @@ h1 {
   background-position-x: 20vw;
   min-height: 64vh;
   margin-top: 10rem;
+  /* background-image: url(../assets/SPIDERMAN.svg) !important; */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 25vw;
@@ -114,5 +115,16 @@ h1 {
 
 .project:nth-of-type(2) {
   background-position-x: 50vw;
+}
+
+@media (max-width: 992px) {
+  .project {
+    background-position-x: 0 !important;
+    background-position-y: 20vh;
+    background-size: 100vw;
+  }
+  .landing-container {
+    padding-bottom: 10vh;
+  }
 }
 </style>

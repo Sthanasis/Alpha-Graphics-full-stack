@@ -164,6 +164,7 @@ export default {
   display: flex;
   height: fit-content;
   height: -moz-fit-content;
+  margin-top: 2em;
 }
 
 .btn-container {
@@ -172,6 +173,10 @@ export default {
 
 .custom-btn {
   color: var(--DarkColor);
+}
+
+.btn {
+  padding: 0 1rem;
 }
 
 .btn-description {

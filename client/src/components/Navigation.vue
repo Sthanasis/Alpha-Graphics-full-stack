@@ -13,11 +13,22 @@
       <span data-icon="burger-menu"></span>
     </button>
     <div id="NavPageContainer" :class="{isExpanded: expanded}">
-      <router-link id="logoContainer" class="navDestination" data-icon="logo" to="/"></router-link>
-      <router-link class="navDestination" to="/portofolio">Portofolio</router-link>
-      <router-link class="navDestination" to="/about">About</router-link>
-      <router-link class="navDestination" to="/contact">Contact</router-link>
-      <router-link class="navDestination" v-if="isAdmin" to="/addProject">Add Project</router-link>
+      <router-link
+        id="logoContainer"
+        class="navDestination"
+        data-icon="logo"
+        to="/"
+        @click="toggleMenuOff"
+      ></router-link>
+      <router-link class="navDestination" to="/portofolio" @click="toggleMenuOff">Portofolio</router-link>
+      <router-link class="navDestination" to="/about" @click="toggleMenuOff">About</router-link>
+      <router-link class="navDestination" to="/contact" @click="toggleMenuOff">Contact</router-link>
+      <router-link
+        class="navDestination"
+        v-if="isAdmin"
+        to="/addProject"
+        @click="toggleMenuOff"
+      >Add Project</router-link>
     </div>
 
     <social></social>
@@ -44,7 +55,9 @@ export default {
         }
       });
     },
-    toggleMenu() {},
+    toggleMenuOff() {
+      this.expanded = false;
+    },
   },
   name: "Navigation",
   components: {

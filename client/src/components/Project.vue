@@ -92,7 +92,6 @@ export default {
   border-radius: 5px;
   color: var(--MainText);
   padding: 2em;
-  height: 96vh;
   position: fixed;
   z-index: 6;
 }
