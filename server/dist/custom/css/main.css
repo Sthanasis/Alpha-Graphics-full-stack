@@ -130,14 +130,13 @@ a {
   overflow-y: hidden;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
   #app {
     background-size: 150vh;
   }
 
-  .description {
-    display: flex;
-    flex-direction: column;
+  .navDestination {
+    font-size: var(--fontSizeML);
   }
 
   .landingLogo {
@@ -155,6 +154,17 @@ a {
   .viewProject {
     padding-right: 2em;
     padding-left: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navDestination {
+    font-size: var(--fontSizeM);
   }
 }
 
