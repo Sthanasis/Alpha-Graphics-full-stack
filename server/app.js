@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
 const router = require("./routes/router");
 
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(compression());
 
 dotenv.config({
   path: "./config.env",
