@@ -25,7 +25,7 @@
         I am a Graphic Designer and a Concept Artist.
         <br />I am young and passionate about designing, full of
         <br />creativity and will on making the world a better place. <br />My
-        Goal is to leave my mark on the Desing field by <br />showing my graphic
+        Goal is to leave my mark on the Design field by <br />showing my graphic
         skills with the pencil and the mouse.
       </div>
       <div class="download alignLeft">
@@ -48,17 +48,19 @@
         </div>
       </div>
     </div>
+    <div v-if="isAdmin" style="top: 90vh; position: absolute">
+      <input
+        v-if="isAdmin"
+        class
+        type="file"
+        id="cvInput"
+        accept="application/pdf"
+      />
 
-    <input
-      v-if="isAdmin"
-      class
-      type="file"
-      id="cvInput"
-      accept="application/pdf"
-    />
-    <button v-if="isAdmin" class="btn btn-success" @click="uploadNewCv">
-      upload cv
-    </button>
+      <button v-if="isAdmin" class="btn btn-success" @click="uploadNewCv">
+        upload cv
+      </button>
+    </div>
   </div>
 </template>
 
@@ -73,6 +75,7 @@ export default {
   },
   mounted() {
     this.$emit("toggleMenuOff");
+    this.$emit("setCurrentPage");
     document.getElementById("app").classList.add("bgCover");
     document.getElementById("logoContainer").classList.add("visible");
   },
@@ -81,11 +84,10 @@ export default {
       apiCalls
         .getCV()
         .then((response) => {
-          console.log(response);
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement("a");
           link.href = url;
-          link.setAttribute("download", "Alpha-Graphics-CV.pdf");
+          link.setAttribute("download", "Alexandros-Efthymiou.pdf");
           document.body.appendChild(link);
           link.click();
           link.remove();
@@ -235,6 +237,9 @@ export default {
   .text {
     margin: auto;
     font-size: var(--fontSizeSM);
+  }
+  .description {
+    text-align: center;
   }
 }
 </style>

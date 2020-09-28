@@ -2,14 +2,18 @@
   <div id="app">
     <navBar
       :isAdmin="isAdmin"
-      @adminLogout="adminLogout"
       :expanded="expanded"
+      :currentPage="currentPage"
+      @setCurrentPage="setCurrentPage"
       @toggleMenu="toggleMenu"
+      @adminLogout="adminLogout"
     ></navBar>
     <router-view
       :isAdmin="isAdmin"
       :design="design"
       :expanded="expanded"
+      :currentPage="currentPage"
+      @setCurrentPage="setCurrentPage"
       @graphicDesign="graphicDesign"
       @conceptArt="conceptArt"
       @toggleMenuOff="toggleMenuOff"
@@ -27,6 +31,7 @@ export default {
       isAdmin: false,
       design: true,
       expanded: false,
+      currentPage: "",
     };
   },
   methods: {
@@ -45,6 +50,9 @@ export default {
     },
     toggleMenuOff() {
       this.expanded = false;
+    },
+    setCurrentPage() {
+      this.currentPage = this.$route.path.substring(1);
     },
   },
   watch: {

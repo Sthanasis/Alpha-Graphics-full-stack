@@ -49,6 +49,11 @@
 [data-icon="download"]:before {
   content: "\00C6";
 }
+
+[data-icon="behance"]:before {
+  content: "\00C7";
+}
+
 @media (max-width: 1250px) {
   [data-icon="logo"]:before {
     font-size: calc(var(--fontSizeL) * 2);

@@ -2,13 +2,13 @@
   <div class="landing-container">
     <logo></logo>
     <h1>Latest Projects!</h1>
-    <div v-if="error === ''">
+    <div v-if="error === ''" style="padding-bottom: 5vh">
       <div
         class="project"
         v-for="project in projects"
         v-bind:key="project._id"
         :id="`${project._id}`"
-        :style="`background-image: url(../img/${project.project};`"
+        :style="`background-image: url(../img/${project.project});`"
       >
         <div class="viewProject widthFitContent">
           <span>{{ project.title }}</span>
@@ -57,6 +57,7 @@ export default {
   props: { isAdmin: Boolean },
   mounted() {
     this.$emit("toggleMenuOff");
+    this.$emit("setCurrentPage");
   },
   async created() {
     this.getData();
@@ -119,12 +120,12 @@ h1 {
 
 .project {
   background-position-x: 20vw;
-  min-height: 64vh;
-  margin-top: 10rem;
-  /* background-image: url(../assets/SPIDERMAN.svg) !important; */
+  min-height: 60vh;
+  margin-top: 9rem;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: 25vw;
+  background-size: 30vw;
+  background-position-y: 30vh;
 }
 
 .project:nth-of-type(2) {

@@ -1,10 +1,21 @@
 <template>
   <div id="socialContainer">
-    <div class="social" data-icon="facebook"></div>
+    <a
+      class="social"
+      href="https://www.behance.net/alexandefthymi"
+      data-icon="behance"
+      style="margin: auto 0.5rem"
+    >
+    </a>
     <a
       class="social"
       data-icon="instagram"
       href="https://www.instagram.com/alphagraphics98/"
+    ></a>
+    <a
+      class="social"
+      data-icon="facebook"
+      href="https://www.facebook.com/Alpha-Graphics-Alexandros-Efthymiou-100160851856558/"
     ></a>
     <a
       class="social"
@@ -22,6 +33,7 @@ export default {};
 <style scoped>
 #socialContainer {
   display: flex;
+  justify-content: center;
 }
 
 .social {

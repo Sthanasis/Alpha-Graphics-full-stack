@@ -24,7 +24,8 @@
         v-bind:key="project._id"
       >
         <div class="project widthFitContent" :id="project._id">
-          <img :src="`../img/${project.project}`" alt style="width: 15rem" />
+          <img :src="`../img/${project.project}`" alt style="width: 20rem" />
+          <!-- <img src="../assets/SPIDERMAN.svg" alt="" style="width: 20rem" /> -->
           <div class="details">
             <span>{{ project.title }}</span>
             <button
@@ -69,13 +70,14 @@ export default {
     design: Boolean,
   },
   mounted() {
-    this.$emit("toggleMenuOff");
     if (this.design) {
       this.getGraphicDesign();
     } else {
       this.getConceptArt();
     }
     document.getElementById("app").classList.add("bgCover");
+    this.$emit("toggleMenuOff");
+    this.$emit("setCurrentPage");
   },
   methods: {
     viewGraphicDesign(event) {
@@ -93,7 +95,7 @@ export default {
     async getConceptArt() {
       try {
         const response = await apiCalls.getConceptArtProjects();
-        this.projects = response.data.data.projects;
+        this.projects = response.data.data.projects.reverse();
         console.log(response);
       } catch (err) {
         this.error = err.message;
@@ -102,7 +104,7 @@ export default {
     async getGraphicDesign() {
       try {
         const response = await apiCalls.getGraphicDesignProjects();
-        this.projects = response.data.data.projects;
+        this.projects = response.data.data.projects.reverse();
       } catch (err) {
         this.error = err.message;
       }
@@ -141,9 +143,9 @@ export default {
 }
 
 .outerProject {
-  height: 15rem;
+  height: 20rem;
   margin: auto;
-  width: 15rem;
+  width: 20rem;
   overflow: hidden;
   border-radius: 0.5em;
 }
@@ -165,10 +167,10 @@ export default {
   top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
+  gap: 1em 1em;
   top: 30vh;
   height: 70vh;
-  width: 100vw;
+  width: 99vw;
   flex-wrap: wrap;
 }
 
@@ -194,11 +196,11 @@ img:hover {
 .details {
   display: grid;
   grid-template-rows: 2fr 2fr;
-  height: 15rem;
+  height: 20rem;
   position: relative;
   top: 0;
-  width: 15rem;
-  left: -15rem;
+  width: 20rem;
+  left: -20rem;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 0.5em;
   opacity: 0;
@@ -218,10 +220,7 @@ img:hover {
 @media (max-width: 1250px) {
   .projectInnerContainer {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .details {
-    opacity: 0.8;
+    margin-top: 5vh;
   }
 }
 
@@ -230,6 +229,15 @@ img:hover {
     grid-template-columns: 1fr;
     gap: 10px;
     margin-top: 2vh;
+  }
+  .outerProject {
+    margin: 1em auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .projectButtonContainer button {
+    margin: 0 0.5em;
   }
 }
 </style>

@@ -21,6 +21,7 @@
 export default {
   mounted() {
     this.$emit("toggleMenuOff");
+    this.$emit("setCurrentPage");
     document.getElementById("app").classList.add("bgCover");
     document.getElementById("logoContainer").classList.add("visible");
   },

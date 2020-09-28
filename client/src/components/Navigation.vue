@@ -3,31 +3,34 @@
     <div class="toggler" @click="toggle">
       <span style="margin: auto" data-icon="burger-menu"></span>
     </div>
-    <div id="NavPageContainer" :class="{ isExpanded: expanded }">
-      <router-link
-        id="logoContainer"
-        class="navDestination"
-        data-icon="logo"
-        to="/"
-      ></router-link>
-      <router-link class="navDestination" to="/portofolio"
-        >Portofolio</router-link
-      >
-      <router-link class="navDestination" to="/about">About</router-link>
-      <router-link class="navDestination" to="/contact">Contact</router-link>
-      <router-link class="navDestination" v-if="isAdmin" to="/addProject"
-        >Add Project</router-link
-      >
-    </div>
+    <div class="pageIndicator">{{ currentPage }}</div>
 
-    <social></social>
-    <div
-      class="btn btn-danger"
-      v-if="isAdmin"
-      @click="logMeOut"
-      style="margin: auto 0"
-    >
-      Logout
+    <div id="NavPageOuterContainer" :class="{ isExpanded: expanded }">
+      <div id="NavPageContainer">
+        <router-link
+          id="logoContainer"
+          class="navDestination"
+          data-icon="logo"
+          to="/"
+        ></router-link>
+        <router-link class="navDestination" to="/portofolio"
+          >Portofolio</router-link
+        >
+        <router-link class="navDestination" to="/about">About</router-link>
+        <router-link class="navDestination" to="/contact">Contact</router-link>
+        <router-link class="navDestination" v-if="isAdmin" to="/addProject"
+          >Add Project</router-link
+        >
+      </div>
+      <social></social>
+      <div
+        class="btn btn-danger"
+        v-if="isAdmin"
+        @click="logMeOut"
+        style="margin: auto 0"
+      >
+        Logout
+      </div>
     </div>
   </nav>
 </template>
@@ -40,7 +43,7 @@ export default {
   data() {
     return {};
   },
-  props: { isAdmin: Boolean, expanded: Boolean },
+  props: { isAdmin: Boolean, expanded: Boolean, currentPage: String },
   methods: {
     logMeOut() {
       apiCalls.logout().then((res) => {
@@ -118,21 +121,44 @@ nav .navDestination {
   display: none;
 }
 
+#NavPageOuterContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.pageIndicator {
+  display: none;
+}
+
 @media screen and (max-width: 1250px) {
   .toggler {
     display: flex;
+    /* margin-left: 10vw; */
   }
-
-  #NavPageContainer {
+  .pageIndicator {
+    display: block;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin: auto 25% auto 0;
+    font-family: "Gilroy-Bold";
+    font-size: var(--fontSizeML);
+  }
+  #NavPageOuterContainer {
     display: none;
-    flex-direction: column;
     height: 90vh;
     background-color: var(--DarkColor);
-    width: 100vw;
-    position: absolute;
     top: 10vh;
+    position: absolute;
   }
-
+  #NavPageOuterContainer,
+  #NavPageContainer {
+    flex-direction: column;
+    width: 100vw;
+  }
+  #NavPageContainer {
+    display: flex;
+    height: 70vh;
+  }
   .isExpanded {
     display: flex !important;
   }

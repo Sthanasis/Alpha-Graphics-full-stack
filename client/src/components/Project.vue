@@ -3,14 +3,16 @@
     <div class="close" @click="closeThisProject">x</div>
     <div class="layout"></div>
     <div class="imgContainer center">
-      <div class="titleContainer">
-        <div class="title" style="text-align: start;">{{project.title}}</div>
-        <div class="description" style="text-align: start;">{{project.description}}</div>
+      <div class="titleContainer widthFitContent">
+        <div class="title" style="text-align: start">{{ project.title }}</div>
+        <div class="description" style="text-align: start">
+          {{ project.description }}
+        </div>
       </div>
       <img :src="`../img/${project.project}`" alt />
       <!-- <img src="../assets/SPIDERMAN.svg" alt /> -->
 
-      <div class="date">{{getDate()}}</div>
+      <div class="date">{{ getDate() }}</div>
     </div>
   </div>
 </template>
@@ -53,7 +55,7 @@ export default {
   opacity: 1;
   margin-top: 2vh;
   margin-left: 87vw;
-  z-index: 5;
+  z-index: 8;
   position: fixed;
   top: 0;
   float: right;
@@ -87,22 +89,30 @@ export default {
 }
 
 .imgContainer {
-  width: 70vw;
-  margin: auto;
+  height: 100vh;
+  width: 100vw;
   border-radius: 5px;
   color: var(--MainText);
   padding: 2em;
   position: fixed;
+  overflow-y: scroll;
   z-index: 6;
 }
 
 .imgContainer img {
-  height: 70vh;
+  width: 60vw;
 }
 
 .date {
-  text-align: end;
+  text-align: center;
   margin-top: 1rem;
   font-style: italic;
+}
+@media (max-width: 768px) {
+  .imgContainer {
+    position: fixed;
+    margin-top: 4rem;
+    padding: 1em;
+  }
 }
 </style>>

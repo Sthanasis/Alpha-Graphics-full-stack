@@ -12,7 +12,7 @@
         <span class="lastName">Efthymiou</span>
       </div>
       <div class="description widthFitContent">
-        Graphics Designer
+        Graphic Designer
         <span>-</span>
         <span>
           Concept Artist
@@ -90,7 +90,6 @@ export default {
 
 .lastName {
   background-color: var(--LightColor);
-  margin-left: 5rem;
 }
 
 .firstName,
@@ -101,7 +100,7 @@ export default {
 
 .description {
   color: var(--DarkColor);
-  font-size: var(--fontSizeSM);
+  font-size: var(--fontSizeM);
   background-color: var(--MainText);
   padding: 0.5rem;
   float: right;
@@ -126,7 +125,6 @@ export default {
     display: flex;
     flex-direction: column;
   }
-
   #footerLogo {
     margin-left: 0;
     position: relative;
@@ -140,6 +138,10 @@ export default {
   }
   .description {
     font-size: var(--fontSizeSM);
+  }
+
+  [data-icon="phone"]:before {
+    font-size: var(--fontSizeM);
   }
 }
 </style>
